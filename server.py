@@ -45,12 +45,24 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Flask App ────────────────────────────────────────────────────────────────
-app = Flask(__name__)
+_FRONTEND_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'frontend'))
+app = Flask(__name__, static_folder=_FRONTEND_DIR, static_url_path='')
 
 # ── CORS ─────────────────────────────────────────────────────────────────────
 # Allow any origin on all /api/* routes so the separately-hosted
 # frontend can call the backend without browser cross-origin errors.
 CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+# ── Serve frontend ───────────────────────────────────────────────────────────
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_frontend(path):
+    """Serve the frontend SPA. Falls back to index.html for any unknown path."""
+    from flask import send_from_directory
+    target = os.path.join(_FRONTEND_DIR, path)
+    if path and os.path.isfile(target):
+        return send_from_directory(_FRONTEND_DIR, path)
+    return send_from_directory(_FRONTEND_DIR, 'index.html')
 
 # ── SSE broadcast ────────────────────────────────────────────────────────────
 _sse_clients: list[queue.Queue] = []
@@ -445,12 +457,14 @@ def driver_login():
             log_event('user_action', f'Driver PIN login failed for vehicle {vehicle_id}', 'driver', vehicle_id)
             return jsonify({'success': False, 'error': 'Invalid PIN'}), 401
     elif auth_mode == 'otp':
-        # OTP pre-verified on frontend; backend just double-checks vehicle exists
-        # (In production: store OTP hash server-side and compare here)
-        otp_token = str(body.get('otp_token', ''))
-        if not otp_token:
-            conn.close()
-            return jsonify({'success': False, 'error': 'OTP token missing'}), 401
+        # Bug G fix: OTP verification was accepting any non-empty string as valid.
+        # Server-side OTP issuance/validation is not yet implemented; refuse the
+        # request rather than grant access with an unverified token.
+        conn.close()
+        return jsonify({
+            'success': False,
+            'error': 'OTP login is not yet supported server-side. Use contact or PIN auth.'
+        }), 501
     else:
         # Default: contact number match (last 10 digits)
         contact    = str(body.get('contact', '')).strip()
@@ -776,6 +790,10 @@ def optimize_route():
 @app.route('/api/routes/<int:rid>', methods=['DELETE'])
 def delete_route(rid):
     conn = get_db()
+    existing = conn.execute("SELECT id FROM routes WHERE id=?", (rid,)).fetchone()
+    if not existing:
+        conn.close()
+        return jsonify({'success': False, 'error': 'Route not found'}), 404
     conn.execute("DELETE FROM routes WHERE id=?", (rid,))
     conn.commit()
     conn.close()
@@ -1127,12 +1145,14 @@ def rate_driver(did):
     rating = float(data.get('rating', 5))
     conn = get_db()
     d = conn.execute('SELECT rating, rating_count FROM drivers WHERE id=?', (did,)).fetchone()
-    if d:
-        new_count = (d['rating_count'] or 0) + 1
-        new_rating = round(((d['rating'] or 5) * (d['rating_count'] or 0) + rating) / new_count, 2)
-        conn.execute('UPDATE drivers SET rating=?, rating_count=? WHERE id=?',
-                     (new_rating, new_count, did))
-        conn.commit()
+    if not d:
+        conn.close()
+        return jsonify({'success': False, 'error': 'Driver not found'}), 404
+    new_count = (d['rating_count'] or 0) + 1
+    new_rating = round(((d['rating'] or 5) * (d['rating_count'] or 0) + rating) / new_count, 2)
+    conn.execute('UPDATE drivers SET rating=?, rating_count=? WHERE id=?',
+                 (new_rating, new_count, did))
+    conn.commit()
     conn.close()
     return jsonify({'success': True})
 
@@ -1705,13 +1725,12 @@ def update_customer(cid):
         if data.get('_delete'):
             conn = get_db()
             row = conn.execute('SELECT id FROM clients WHERE id=?', (cid,)).fetchone()
-            conn.close()
             if not row:
+                conn.close()
                 return jsonify({'success': False, 'error': 'Customer not found'}), 404
-            conn2 = get_db()
-            conn2.execute('DELETE FROM clients WHERE id=?', (cid,))
-            conn2.commit()
-            conn2.close()
+            conn.execute('DELETE FROM clients WHERE id=?', (cid,))
+            conn.commit()
+            conn.close()
             return jsonify({'success': True, 'deleted': True})
         conn = get_db()
         conn.execute("""
@@ -1846,12 +1865,13 @@ def log_fuel():
     if not data.get('vehicle_id') or not data.get('liters_consumed'):
         return jsonify({'success': False, 'error': 'vehicle_id and liters_consumed required'}), 400
     conn = get_db()
+    # Bug B fix: 'fuel_station' does not exist in the fuel_logs schema — removed
     conn.execute("""
         INSERT INTO fuel_logs (vehicle_id, liters_consumed, cost_inr,
-            odometer_km, fuel_station, fuel_efficiency_kmpl)
-        VALUES (?,?,?,?,?,?)
+            odometer_km, fuel_efficiency_kmpl)
+        VALUES (?,?,?,?,?)
     """, (data['vehicle_id'], data['liters_consumed'], data.get('cost_inr'),
-          data.get('odometer_km'), data.get('fuel_station'), data.get('fuel_efficiency_kmpl')))
+          data.get('odometer_km'), data.get('fuel_efficiency_kmpl')))
     # Update vehicle fuel level
     if data.get('fuel_level_pct'):
         conn.execute('UPDATE vehicles SET fuel_level_pct=? WHERE id=?',
@@ -2247,13 +2267,12 @@ def update_staff(sid):
         if data.get('_delete'):
             conn = get_db()
             row = conn.execute('SELECT id FROM staff WHERE id=?', (sid,)).fetchone()
-            conn.close()
             if not row:
+                conn.close()
                 return jsonify({'success': False, 'error': 'Staff member not found'}), 404
-            conn2 = get_db()
-            conn2.execute('DELETE FROM staff WHERE id=?', (sid,))
-            conn2.commit()
-            conn2.close()
+            conn.execute('DELETE FROM staff WHERE id=?', (sid,))
+            conn.commit()
+            conn.close()
             return jsonify({'success': True, 'deleted': True})
         conn = get_db()
         conn.execute("""
@@ -2303,14 +2322,20 @@ def get_notifications():
 def create_notification():
     data = request.json or {}
     conn = get_db()
+    # Bug A fix: use actual schema columns (subject, message, channel, recipient_type, recipient_id)
+    # The notifications table has: recipient_type, recipient_id, channel, subject, message,
+    # order_id, vehicle_id, is_read, sent_at — NOT title/type/priority/related_*
     conn.execute("""
-        INSERT INTO notifications (title, message, type, priority, related_id, related_type)
-        VALUES (?,?,?,?,?,?)
-    """, (data.get('title','Notification'), data.get('message',''),
-          data.get('type','info'), data.get('priority','Normal'),
-          data.get('related_id'), data.get('related_type')))
+        INSERT INTO notifications
+            (recipient_type, recipient_id, channel, subject, message, order_id, vehicle_id)
+        VALUES (?,?,?,?,?,?,?)
+    """, (data.get('recipient_type', 'all'), data.get('recipient_id'),
+          data.get('channel', 'app'),
+          data.get('title', data.get('subject', 'Notification')),
+          data.get('message', ''),
+          data.get('order_id'), data.get('vehicle_id')))
     conn.commit(); conn.close()
-    broadcast(json.dumps({'type': 'notification', 'title': data.get('title')}))
+    broadcast(json.dumps({'type': 'notification', 'title': data.get('title', data.get('subject'))}))
     return jsonify({'success': True})
 
 @app.route('/api/notifications/read-all', methods=['POST'])
@@ -2337,8 +2362,10 @@ def _cleanup_old_positions():
         conn.close()
     except Exception as e:
         logger.warning('position cleanup error: %s', e)
-    # Schedule next cleanup in 6 hours
-    threading.Timer(6 * 3600, _cleanup_old_positions).start()
+    # Bug H fix: mark Timer as daemon so it won't prevent clean server shutdown
+    t = threading.Timer(6 * 3600, _cleanup_old_positions)
+    t.daemon = True
+    t.start()
 
 
 # ── Error handlers ────────────────────────────────────────────────────────────
@@ -2362,7 +2389,10 @@ if __name__ == '__main__':
     mongo_registry.seed_registry()   # seed MongoDB vehicle details on startup
     seed_maintenance_records()        # seed 6 maintenance records if table empty
     # B-27: Start periodic vehicle_positions cleanup (runs every 6 h)
-    threading.Timer(300, _cleanup_old_positions).start()  # first run after 5 min
+    # Bug H fix: daemon=True so the timer thread doesn't block shutdown
+    _t0 = threading.Timer(300, _cleanup_old_positions)
+    _t0.daemon = True
+    _t0.start()  # first run after 5 min
     log_event('system', 'Fleet Command server starting', 'system', 'server')
     simulation_engine.start()
     # B-19: Read PORT from environment so Render/Railway can inject their port
