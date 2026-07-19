@@ -24,6 +24,9 @@ CITY_COORDS = {
     'Bhubaneswar':     (20.2961, 85.8245),
     'Tuticorin':       (8.7642, 78.1348),
     'Trivandrum':      (8.5241, 76.9366),
+    'Delhi':           (28.6315, 77.2167),
+    'Ooty':            (11.4102, 76.6950),
+    'Bay of Bengal':   (16.40, 82.83),
 }
 
 def haversine_km(lat1, lon1, lat2, lon2):
@@ -123,7 +126,7 @@ class SimulationEngine:
                         })
                     elif rand < 0.08:
                         new_speed = 0
-                        new_status = 'idle'
+                        new_status = 'stopped'
                     else:
                         new_speed = base_speed + random.uniform(-8, 8)
                         new_speed = max(30, min(75, new_speed))
@@ -139,22 +142,25 @@ class SimulationEngine:
                         new_lat, new_lng = dst_coords
                         new_status = 'idle'
                         new_speed = 0
-                        # Mark order delivered
+                        # Bug D fix: pin the order_id before any DB writes so that
+                        # NULLing current_order_id on the vehicle cannot corrupt the
+                        # alert/log even if the update order is ever changed.
+                        delivered_order_id = v['current_order_id']
                         conn.execute(
                             "UPDATE orders SET order_status='Delivered', actual_delivery_datetime=? WHERE id=?",
-                            (now, v['current_order_id'])
+                            (now, delivered_order_id)
                         )
                         conn.execute(
                             "UPDATE vehicles SET current_order_id=NULL, assigned_route=NULL WHERE id=?",
                             (vid,)
                         )
-                        log_event('delivery', f"Vehicle {vid} delivered order {v['current_order_id']}",
-                                  'vehicle', vid, {'order_id': v['current_order_id']})
+                        log_event('delivery', f"Vehicle {vid} delivered order {delivered_order_id}",
+                                  'vehicle', vid, {'order_id': delivered_order_id})
                         alert_events.append({
                             'vehicle_id': vid,
-                            'order_id': v['current_order_id'],
+                            'order_id': delivered_order_id,
                             'type': 'Delivery Complete',
-                            'reason': f"Order {v['current_order_id']} delivered at {v['destination_city']}",
+                            'reason': f"Order {delivered_order_id} delivered at {v['destination_city']}",
                             'severity': 'Low'
                         })
 
