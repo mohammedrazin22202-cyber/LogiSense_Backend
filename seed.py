@@ -27,6 +27,9 @@ CITY_COORDS = {
     'Trivandrum':      (8.5241,  76.9366),
     'Bengaluru':       (12.9716, 77.5946),
     'Hyderabad':       (17.3850, 78.4867),
+    'Delhi':           (28.6315, 77.2167),
+    'Ooty':            (11.4102, 76.6950),
+    'Bay of Bengal':   (16.40, 82.83),
 }
 
 def find_xlsx():
