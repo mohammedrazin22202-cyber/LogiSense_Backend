@@ -276,7 +276,7 @@ def seed():
     print("=" * 45)
     print(f"   Orders   : {len(orders)} total  ({in_transit} In Transit, {delivered} Delivered)")
     print(f"   Vehicles : {len(vehicles)} trucks  ({moving_v} moving on map)")
-    print(f"   Database : SQLite → fleet.db")
+    print(f"   Database : SQLite -> fleet.db")
     print("=" * 45)
     print("[OK] Seeding complete! Run the server now.\n")
 
