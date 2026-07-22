@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-DB_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'fleet.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'fleet.db')
 
 def reset_client_ids():
     conn = sqlite3.connect(DB_PATH)
