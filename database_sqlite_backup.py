@@ -6,7 +6,7 @@ import sqlite3
 import os
 import logging
 
-DB_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'fleet.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'fleet.db')
 
 logger = logging.getLogger(__name__)
 
