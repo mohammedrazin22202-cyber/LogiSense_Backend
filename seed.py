@@ -11,7 +11,6 @@ sys.path.insert(0, os.path.dirname(__file__))
 import openpyxl
 from datetime import datetime
 from database import init_db, get_db, log_event
-from config import DB_NAME
 
 # ── City coordinates for map positioning ─────────────────────────────────────
 CITY_COORDS = {
