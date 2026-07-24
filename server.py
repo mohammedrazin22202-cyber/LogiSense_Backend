@@ -2312,7 +2312,7 @@ def get_notifications():
     q = 'SELECT * FROM notifications WHERE 1=1'
     if unread_only:
         q += ' AND is_read=0'
-    q += ' ORDER BY created_at DESC LIMIT 100'
+    q += ' ORDER BY sent_at DESC LIMIT 100'
     rows = rows_to_list(conn.execute(q).fetchall())
     unread = conn.execute('SELECT COUNT(*) as c FROM notifications WHERE is_read=0').fetchone()['c']
     conn.close()
