@@ -26,7 +26,7 @@ from datetime import datetime, timedelta
 
 # ── Locate fleet.db ────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH    = os.path.join(SCRIPT_DIR, '..', 'data', 'fleet.db')
+DB_PATH    = os.path.join(SCRIPT_DIR, 'data', 'fleet.db')
 DB_PATH    = os.path.normpath(DB_PATH)
 
 if not os.path.exists(DB_PATH):
