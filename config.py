@@ -51,3 +51,5 @@ PORT = int(os.environ.get('PORT', 1995))
 # Commit tweak 11: style: cleanup empty lines at end of configuration file
 
 # Commit tweak 21: docs: update admin credentials fallback descriptions
+
+# Commit tweak 31: style: improve comments layout in database settings block
