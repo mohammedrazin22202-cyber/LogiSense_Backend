@@ -178,3 +178,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Commit tweak 9: fix: clarify mongo sync logging for empty collections
