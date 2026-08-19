@@ -370,3 +370,5 @@ def delete_registry(vehicle_id: str) -> bool:
 # Commit tweak 3: docs: document vehicle registry fallback parameters
 
 # Commit tweak 13: style: format inline comments in vehicle registry query
+
+# Commit tweak 23: style: format index creation parameters documentation
