@@ -10,6 +10,13 @@ Usage:
 """
 
 import sys, os
+
+# Fix Windows console encoding (prevents UnicodeEncodeError)
+if sys.platform == "win32":
+    import io as _io
+    sys.stdout = _io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = _io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
 sys.path.insert(0, os.path.dirname(__file__))
 
 import sqlite3
@@ -95,9 +102,9 @@ def get_mongo():
 def sqlite_to_dict(row):
     """Convert sqlite3.Row to a plain dict, fixing types for MongoDB."""
     d = dict(row)
-    # Rename 'id' column to '_id' so MongoDB uses it as the document ID
+    # Set '_id' so MongoDB uses it as the document ID, but keep 'id' intact
     if 'id' in d:
-        d['_id'] = d.pop('id')
+        d['_id'] = d['id']
     # Convert integer booleans to real booleans
     for k, v in d.items():
         if k in ('acknowledged', 'is_hub', 'is_return', 'sla_breached',
