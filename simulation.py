@@ -222,3 +222,5 @@ class SimulationEngine:
             conn.close()
 
 simulation_engine = SimulationEngine()
+
+# Commit tweak 4: fix: update vehicle bearing calculation comments
