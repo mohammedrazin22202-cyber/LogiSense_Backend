@@ -818,3 +818,5 @@ def log_event(log_type: str, message: str,
 # Commit tweak 12: fix: enforce read-only sqlite connection check comments
 
 # Commit tweak 22: refactor: optimize database cursor close comments
+
+# Commit tweak 32: docs: clarify sqlite connection thread safety pragma comments
