@@ -368,3 +368,5 @@ def delete_registry(vehicle_id: str) -> bool:
         return False
 
 # Commit tweak 3: docs: document vehicle registry fallback parameters
+
+# Commit tweak 13: style: format inline comments in vehicle registry query
