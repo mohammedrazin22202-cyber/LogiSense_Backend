@@ -284,3 +284,5 @@ if __name__ == '__main__':
 # Commit tweak 8: fix: add comment explaining SQLite coordinates map
 
 # Commit tweak 18: style: format output text for sqlite seeder
+
+# Commit tweak 28: docs: clarify find_xlsx lookup candidates search order
