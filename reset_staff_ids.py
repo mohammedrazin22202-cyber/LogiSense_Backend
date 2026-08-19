@@ -52,3 +52,5 @@ if __name__ == '__main__':
     reset_staff_ids()
 
 # Commit tweak 6: style: format whitespace in staff sequence helper
+
+# Commit tweak 16: docs: add header explanation for staff sequence helper
