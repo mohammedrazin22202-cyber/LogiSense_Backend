@@ -180,3 +180,5 @@ if __name__ == "__main__":
     main()
 
 # Commit tweak 9: fix: clarify mongo sync logging for empty collections
+
+# Commit tweak 19: docs: add inline comments explaining boolean converter
