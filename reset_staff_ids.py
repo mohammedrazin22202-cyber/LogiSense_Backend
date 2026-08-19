@@ -56,3 +56,5 @@ if __name__ == '__main__':
 # Commit tweak 16: docs: add header explanation for staff sequence helper
 
 # Commit tweak 26: style: optimize imports layout in staff reset script
+
+# Commit tweak 36: docs: clarify staff sequence reset behavior on empty DB
