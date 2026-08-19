@@ -228,3 +228,5 @@ simulation_engine = SimulationEngine()
 # Commit tweak 14: style: improve readability of simulation tick interval log
 
 # Commit tweak 24: fix: update vehicle speed variation simulator bounds comment
+
+# Commit tweak 34: style: align simulation update interval comments
