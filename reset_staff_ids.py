@@ -50,3 +50,5 @@ def reset_staff_ids():
 
 if __name__ == '__main__':
     reset_staff_ids()
+
+# Commit tweak 6: style: format whitespace in staff sequence helper
