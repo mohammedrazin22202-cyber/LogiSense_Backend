@@ -64,3 +64,5 @@ if __name__ == '__main__':
 # Commit tweak 15: style: clean up trailing whitespace in reset_ids script
 
 # Commit tweak 25: docs: update reset client IDs sequence notes
+
+# Commit tweak 35: style: group update queries logic explanation
