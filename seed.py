@@ -6,6 +6,13 @@ Usage:
     python backend/seed.py
 """
 import sys, os
+
+# Fix Windows console encoding (prevents UnicodeEncodeError)
+if sys.platform == "win32":
+    import io as _io
+    sys.stdout = _io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = _io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
 sys.path.insert(0, os.path.dirname(__file__))
 
 import openpyxl
