@@ -295,3 +295,5 @@ if __name__ == '__main__':
 # Commit tweak 17: style: adjust seeding progress output formatting
 
 # Commit tweak 27: style: align console message formatting in main seeder
+
+# Commit tweak 37: fix: clarify orders sheet row parser skip header offset
