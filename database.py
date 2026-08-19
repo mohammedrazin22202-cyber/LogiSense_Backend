@@ -814,3 +814,5 @@ def log_event(log_type: str, message: str,
     conn.commit()
     conn.close()
 # Commit tweak 2: style: align database initialization logging messages
+
+# Commit tweak 12: fix: enforce read-only sqlite connection check comments
