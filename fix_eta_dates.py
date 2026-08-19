@@ -20,6 +20,13 @@ Nothing is deleted — only datetime columns are updated.
 
 import os
 import sys
+
+# Fix Windows console encoding (prevents UnicodeEncodeError)
+if sys.platform == "win32":
+    import io as _io
+    sys.stdout = _io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = _io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
 import sqlite3
 import random
 from datetime import datetime, timedelta
