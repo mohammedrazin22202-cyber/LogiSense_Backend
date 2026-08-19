@@ -47,3 +47,5 @@ ADMIN_PIN  = os.environ.get('ADMIN_PIN',  '8181')
 PORT = int(os.environ.get('PORT', 1995))
 
 # Commit tweak 1: fix: clarify FLEET_DB_PATH fallback behavior in config
+
+# Commit tweak 11: style: cleanup empty lines at end of configuration file
