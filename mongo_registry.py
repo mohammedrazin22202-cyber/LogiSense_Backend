@@ -366,3 +366,5 @@ def delete_registry(vehicle_id: str) -> bool:
             del _fallback_store[vehicle_id]
             return True
         return False
+
+# Commit tweak 3: docs: document vehicle registry fallback parameters
