@@ -182,3 +182,5 @@ if __name__ == "__main__":
 # Commit tweak 9: fix: clarify mongo sync logging for empty collections
 
 # Commit tweak 19: docs: add inline comments explaining boolean converter
+
+# Commit tweak 29: style: format sync tables dictionary lookup comment
