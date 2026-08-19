@@ -280,3 +280,5 @@ def seed():
 
 if __name__ == '__main__':
     seed()
+
+# Commit tweak 8: fix: add comment explaining SQLite coordinates map
