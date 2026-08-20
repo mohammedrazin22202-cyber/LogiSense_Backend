@@ -1810,7 +1810,7 @@ def create_invoice():
 
 @app.route('/api/invoices/<iid>/pay', methods=['POST'])
 def mark_invoice_paid(iid):
-    data = request.json or {}
+    data = request.get_json(silent=True) or {}
     conn = get_db()
     # B-06/B-07: Schema uses 'status' and 'paid_at'; no payment_method column
     conn.execute("""
