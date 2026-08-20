@@ -1785,7 +1785,7 @@ def create_invoice():
     if not data.get('order_id'):
         return jsonify({'success': False, 'error': 'order_id required'}), 400
     conn = get_db()
-    order = conn.execute('SELECT * FROM orders WHERE id=?', (data['order_id'],)).fetchone()
+    order = row_to_dict(conn.execute('SELECT * FROM orders WHERE id=?', (data['order_id'],)).fetchone())
     if not order:
         conn.close(); return jsonify({'success': False, 'error': 'Order not found'}), 404
     # B-06: Column names must match the 'invoices' schema (id, client_id, order_id,
