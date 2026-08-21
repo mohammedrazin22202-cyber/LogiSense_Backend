@@ -827,6 +827,25 @@ class LogiSense360Test(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertTrue(res.get_json()['success'])
 
+        # Driver OTP Login Success
+        res = self.client.post('/api/driver/login', json={
+            'vehicle_id': 'OFE-TRK-001',
+            'auth_mode': 'otp',
+            'otp_token': 'verified_123456'
+        })
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(res.get_json()['success'])
+
+        # Driver OTP Login Failure (invalid token format)
+        res = self.client.post('/api/driver/login', json={
+            'vehicle_id': 'OFE-TRK-001',
+            'auth_mode': 'otp',
+            'otp_token': 'invalid_token'
+        })
+        self.assertEqual(res.status_code, 401)
+        self.assertFalse(res.get_json()['success'])
+
+
 
 class ChatBotTest(unittest.TestCase):
     @classmethod
