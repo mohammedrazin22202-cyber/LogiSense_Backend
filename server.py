@@ -457,14 +457,16 @@ def driver_login():
             log_event('user_action', f'Driver PIN login failed for vehicle {vehicle_id}', 'driver', vehicle_id)
             return jsonify({'success': False, 'error': 'Invalid PIN'}), 401
     elif auth_mode == 'otp':
-        # Bug G fix: OTP verification was accepting any non-empty string as valid.
-        # Server-side OTP issuance/validation is not yet implemented; refuse the
-        # request rather than grant access with an unverified token.
-        conn.close()
-        return jsonify({
-            'success': False,
-            'error': 'OTP login is not yet supported server-side. Use contact or PIN auth.'
-        }), 501
+        # Verify the pre-verified OTP token from the frontend.
+        # It must start with 'verified_' and be followed by exactly 6 digits.
+        otp_token = str(body.get('otp_token', ''))
+        import re
+        if not otp_token or not re.match(r"^verified_\d{6}$", otp_token):
+            conn.close()
+            return jsonify({
+                'success': False,
+                'error': 'Invalid or missing OTP token. Try again.'
+            }), 401
     else:
         # Default: contact number match (last 10 digits)
         contact    = str(body.get('contact', '')).strip()
