@@ -8,8 +8,8 @@ Flask REST API + SQLite database + MongoDB registry + real-time SSE stream for t
 
 - **Python 3.9+**
 - **Node.js** is NOT required for the backend
-- MySQL running locally (or configure a remote connection in `config.py`)
-- MongoDB running locally (optional — registry features degrade gracefully if unavailable)
+- **SQLite** (built-in, no installation required)
+- **MongoDB** running locally (optional — registry features degrade gracefully if unavailable)
 
 ---
 
@@ -19,10 +19,10 @@ Flask REST API + SQLite database + MongoDB registry + real-time SSE stream for t
 backend/
 ├── server.py          # Main Flask app — all REST API + SSE endpoints
 ├── database.py        # SQLite helpers (init_db, get_db, log_event)
-├── config.py          # MySQL connection settings ← edit this
+├── config.py          # Database config & env overrides
 ├── mongo_registry.py  # MongoDB vehicle registry
 ├── simulation.py      # Background vehicle simulation engine
-├── seed.py            # Seeds MySQL + SQLite from orders_master.xlsx
+├── seed.py            # Seeds SQLite from orders_master.xlsx
 ├── requirements.txt   # Python dependencies
 ├── start.bat          # Windows startup script
 └── data/              # Runtime data (auto-created)
@@ -36,17 +36,8 @@ backend/
 
 ### 1. Configure the database
 
-Edit `config.py` and set your MySQL credentials:
-
-```python
-DB_CONFIG = {
-    'host':     'localhost',
-    'port':     3306,
-    'user':     'root',       # ← your MySQL username
-    'password': '',           # ← your MySQL password
-    'database': 'fleet_command',
-}
-```
+The backend uses SQLite by default. The database file will be automatically created at `backend/data/fleet.db`.
+No manual database configuration or credentials are required. Override the file location by setting the `FLEET_DB_PATH` environment variable if desired.
 
 ### 2. Run the server (Windows)
 
