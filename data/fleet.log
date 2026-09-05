@@ -6292,3 +6292,175 @@ sqlite3.OperationalError: no such column: created_at
 2026-07-19 18:23:02,107 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:23:02] "GET /api/vehicles HTTP/1.1" 200 -
 2026-07-19 18:23:32,130 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:23:32] "GET /api/vehicles HTTP/1.1" 200 -
 2026-07-19 18:24:56,995 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:24:56] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:25:45,913 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:25:45] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:26:01,993 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:26:01] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:26:32,006 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:26:32] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:27:57,019 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:27:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:28:04,134 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:28:04] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:28:32,065 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:28:32] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:29:02,066 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:29:02] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:29:57,029 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:29:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:30:57,021 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:30:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:31:57,001 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:31:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:32:57,073 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:32:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:33:57,061 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:33:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:34:28,046 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:34:28] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:34:32,029 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:34:32] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:35:02,011 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:35:02] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:35:57,059 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:35:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:36:02,137 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:36:02] "GET /api/vehicles HTTP/1.1" 200 -
+2026-07-19 18:39:12,496 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:39:12] "GET / HTTP/1.1" 200 -
+2026-07-19 18:39:13,240 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:39:13] "GET /style.css?v=2 HTTP/1.1" 200 -
+2026-07-19 18:39:13,249 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:39:13] "GET /logo.png HTTP/1.1" 200 -
+2026-07-19 18:39:13,266 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:39:13] "GET /demo-data.js HTTP/1.1" 200 -
+2026-07-19 18:39:13,283 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:39:13] "GET /script.js HTTP/1.1" 200 -
+2026-07-19 18:39:13,290 [INFO] werkzeug: 127.0.0.1 - - [19/Jul/2026 18:39:13] "GET /config.js HTTP/1.1" 200 -
+2026-07-22 12:03:44,688 [INFO] database: SQLite database initialised at C:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-07-22 12:03:44,733 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a60644883a773e43319f759, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a60644883a773e43319f759"}, "remainingTimeMS": 3}
+2026-07-22 12:03:44,876 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-07-22 12:03:44,882 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a60644883a773e43319f75a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a60644883a773e43319f75a"}, "remainingTimeMS": 3}
+2026-07-22 12:03:44,921 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-07-22 12:03:45,034 [INFO] mongo_registry: Vehicle registry seeded: 0 new records
+2026-07-22 12:03:45,045 [INFO] simulation: Simulation engine started (interval=5s)
+2026-07-22 12:03:45,046 [INFO] __main__: Fleet Command server starting on port 1995
+2026-07-22 12:03:45,076 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1995
+ * Running on http://192.168.31.220:1995
+2026-07-22 12:03:45,076 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-07-22 12:03:49,820 [INFO] werkzeug: 127.0.0.1 - - [22/Jul/2026 12:03:49] "GET / HTTP/1.1" 200 -
+2026-07-22 12:03:49,851 [INFO] werkzeug: 127.0.0.1 - - [22/Jul/2026 12:03:49] "GET /style.css?v=2 HTTP/1.1" 200 -
+2026-07-22 12:03:49,864 [INFO] werkzeug: 127.0.0.1 - - [22/Jul/2026 12:03:49] "GET /logo.png HTTP/1.1" 200 -
+2026-07-22 12:03:49,865 [INFO] werkzeug: 127.0.0.1 - - [22/Jul/2026 12:03:49] "GET /config.js HTTP/1.1" 200 -
+2026-07-22 12:03:49,875 [INFO] werkzeug: 127.0.0.1 - - [22/Jul/2026 12:03:49] "GET /demo-data.js HTTP/1.1" 200 -
+2026-07-22 12:03:49,876 [INFO] werkzeug: 127.0.0.1 - - [22/Jul/2026 12:03:49] "GET /script.js HTTP/1.1" 200 -
+2026-08-19 09:07:25,475 [INFO] database: SQLite database initialised at C:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-19 09:07:25,528 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a8524f5c2e6a25af1bd1c66, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a8524f5c2e6a25af1bd1c66"}, "remainingTimeMS": 3}
+2026-08-19 09:07:25,544 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-19 09:07:25,552 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a8524f5c2e6a25af1bd1c67, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a8524f5c2e6a25af1bd1c67"}, "remainingTimeMS": 3}
+2026-08-19 09:07:25,580 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-19 09:07:25,836 [INFO] mongo_registry: Vehicle registry seeded: 0 new records
+2026-08-19 09:07:25,868 [INFO] simulation: Simulation engine started (interval=5s)
+2026-08-19 09:07:25,868 [INFO] __main__: Fleet Command server starting on port 1995
+2026-08-19 09:07:26,015 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1995
+ * Running on http://192.168.31.220:1995
+2026-08-19 09:07:26,015 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-08-19 09:07:55,241 [INFO] werkzeug: 127.0.0.1 - - [19/Aug/2026 09:07:55] "HEAD /api/vehicles HTTP/1.1" 200 -
+2026-08-19 09:07:55,301 [INFO] werkzeug: 127.0.0.1 - - [19/Aug/2026 09:07:55] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-19 09:34:21,599 [INFO] werkzeug: 127.0.0.1 - - [19/Aug/2026 09:34:21] "HEAD /api/vehicles HTTP/1.1" 200 -
+2026-08-19 09:34:21,680 [INFO] werkzeug: 127.0.0.1 - - [19/Aug/2026 09:34:21] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-19 09:34:28,770 [INFO] werkzeug: 127.0.0.1 - - [19/Aug/2026 09:34:28] "HEAD /api/warehouses HTTP/1.1" 200 -
+2026-08-19 09:34:28,806 [INFO] werkzeug: 127.0.0.1 - - [19/Aug/2026 09:34:28] "GET /api/warehouses HTTP/1.1" 200 -
+2026-08-20 10:19:06,582 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-20 10:19:06,641 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a868742a97cef1727698a85, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a868742a97cef1727698a85"}, "remainingTimeMS": 3}
+2026-08-20 10:19:06,658 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-20 10:19:07,155 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a868742a97cef1727698a86, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a868742a97cef1727698a86"}, "remainingTimeMS": 3}
+2026-08-20 10:19:07,168 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-20 10:19:08,236 [ERROR] server: Exception on /api/invoices [POST]
+Traceback (most recent call last):
+  File "C:\Users\MegaTron\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MegaTron\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MegaTron\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MegaTron\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MegaTron\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\server.py", line 1802, in create_invoice
+    """, (inv_no, data['order_id'], order.get('client_id'),
+                                    ^^^^^^^^^
+AttributeError: 'sqlite3.Row' object has no attribute 'get'
+2026-08-20 10:19:08,274 [ERROR] server: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2026-08-20 10:20:29,379 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-20 10:20:29,395 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a8687953cb09f5584a9d09f, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a8687953cb09f5584a9d09f"}, "remainingTimeMS": 3}
+2026-08-20 10:20:29,411 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-20 10:20:29,680 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a8687953cb09f5584a9d0a0, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a8687953cb09f5584a9d0a0"}, "remainingTimeMS": 3}
+2026-08-20 10:20:29,706 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-20 10:20:58,079 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-20 10:20:58,092 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a8687b2ad02ea2cc274beec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a8687b2ad02ea2cc274beec"}, "remainingTimeMS": 3}
+2026-08-20 10:20:58,105 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-20 10:20:58,372 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a8687b2ad02ea2cc274beed, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a8687b2ad02ea2cc274beed"}, "remainingTimeMS": 3}
+2026-08-20 10:20:58,385 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-21 11:29:44,324 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-21 11:29:44,484 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87e9500d64c51b336a4d61, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87e9500d64c51b336a4d61"}, "remainingTimeMS": 3}
+2026-08-21 11:29:44,494 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-21 11:29:44,791 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87e9500d64c51b336a4d62, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87e9500d64c51b336a4d62"}, "remainingTimeMS": 3}
+2026-08-21 11:29:44,800 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-21 11:30:49,086 [INFO] database: SQLite database initialised at C:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-21 11:30:49,118 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87e99157e68f357d903d0e, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87e99157e68f357d903d0e"}, "remainingTimeMS": 3}
+2026-08-21 11:30:49,140 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-21 11:30:49,146 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87e99157e68f357d903d0f, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87e99157e68f357d903d0f"}, "remainingTimeMS": 3}
+2026-08-21 11:30:49,153 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-21 11:30:49,166 [INFO] mongo_registry: Vehicle registry seeded: 0 new records
+2026-08-21 11:30:49,180 [INFO] simulation: Simulation engine started (interval=5s)
+2026-08-21 11:30:49,180 [INFO] __main__: Fleet Command server starting on port 1995
+2026-08-21 11:30:49,275 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1995
+ * Running on http://192.168.31.220:1995
+2026-08-21 11:30:49,276 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-08-21 11:31:55,624 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:31:55] "HEAD /api/vehicles HTTP/1.1" 200 -
+2026-08-21 11:39:40,411 [INFO] database: SQLite database initialised at C:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-21 11:39:40,419 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87eba487e7a4286f36d94f, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87eba487e7a4286f36d94f"}, "remainingTimeMS": 3}
+2026-08-21 11:39:40,431 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-21 11:39:40,434 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87eba487e7a4286f36d950, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87eba487e7a4286f36d950"}, "remainingTimeMS": 3}
+2026-08-21 11:39:40,441 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-21 11:39:40,453 [INFO] mongo_registry: Vehicle registry seeded: 0 new records
+2026-08-21 11:39:40,468 [INFO] simulation: Simulation engine started (interval=5s)
+2026-08-21 11:39:40,468 [INFO] __main__: Fleet Command server starting on port 1995
+2026-08-21 11:39:40,497 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1995
+ * Running on http://192.168.31.220:1995
+2026-08-21 11:39:40,497 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-08-21 11:39:55,289 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-21 11:39:55,300 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87ebb383f41151084a45d2, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87ebb383f41151084a45d2"}, "remainingTimeMS": 3}
+2026-08-21 11:39:55,313 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-21 11:39:55,435 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87ebb383f41151084a45d3, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87ebb383f41151084a45d3"}, "remainingTimeMS": 3}
+2026-08-21 11:39:55,441 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-21 11:40:11,206 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:11] "[31m[1mPOST /api/driver/login HTTP/1.1[0m" 400 -
+2026-08-21 11:40:21,119 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:21] "POST /api/driver/login HTTP/1.1" 200 -
+2026-08-21 11:40:41,626 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:41] "POST /api/driver/login HTTP/1.1" 200 -
+2026-08-21 11:40:43,668 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:43] "[31m[1mPOST /api/driver/login HTTP/1.1[0m" 401 -
+2026-08-21 11:40:45,772 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:45] "[31m[1mPOST /api/driver/login HTTP/1.1[0m" 401 -
+2026-08-21 11:40:47,820 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:47] "[31m[1mPOST /api/driver/login HTTP/1.1[0m" 401 -
+2026-08-21 11:40:49,894 [INFO] werkzeug: 127.0.0.1 - - [21/Aug/2026 11:40:49] "[31m[1mPOST /api/driver/login HTTP/1.1[0m" 401 -
+2026-08-21 11:44:07,747 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-21 11:44:07,921 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87ecafa5fbfc5039bc5fbb, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87ecafa5fbfc5039bc5fbb"}, "remainingTimeMS": 3}
+2026-08-21 11:44:07,938 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-21 11:44:08,196 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a87ecb0a5fbfc5039bc5fbc, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a87ecb0a5fbfc5039bc5fbc"}, "remainingTimeMS": 3}
+2026-08-21 11:44:08,204 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-30 21:22:31,561 [INFO] database: SQLite database initialised at C:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-08-30 21:22:31,570 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a9451bfdf583f4a212159e1, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a9451bfdf583f4a212159e1"}, "remainingTimeMS": 3}
+2026-08-30 21:22:31,584 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-08-30 21:22:31,587 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a9451bfdf583f4a212159e2, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a9451bfdf583f4a212159e2"}, "remainingTimeMS": 3}
+2026-08-30 21:22:31,616 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-08-30 21:22:31,630 [INFO] mongo_registry: Vehicle registry seeded: 0 new records
+2026-08-30 21:22:31,648 [INFO] simulation: Simulation engine started (interval=5s)
+2026-08-30 21:22:31,648 [INFO] __main__: Fleet Command server starting on port 1995
+2026-08-30 21:22:31,687 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1995
+ * Running on http://192.168.31.220:1995
+2026-08-30 21:22:31,687 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-08-30 21:22:57,474 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:22:57] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:23:00,160 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:23:00] "OPTIONS /api/admin/auth HTTP/1.1" 200 -
+2026-08-30 21:23:00,504 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:23:00] "POST /api/admin/auth HTTP/1.1" 200 -
+2026-08-30 21:23:02,412 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:23:02] "GET /api/stream HTTP/1.1" 200 -
+2026-08-30 21:23:33,068 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:23:33] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:24:03,029 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:24:03] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:24:33,023 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:24:33] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:25:03,019 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:25:03] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:25:38,928 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:25:38] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:26:08,626 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:26:08] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:27:11,025 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:27:11] "GET /api/vehicles HTTP/1.1" 200 -
+2026-08-30 21:28:08,562 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:28:08] "GET /api/vehicles HTTP/1.1" 200 -
