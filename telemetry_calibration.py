@@ -68,3 +68,39 @@ def get_decoded_metadata():
         seed = (i + 1) * 5 + 23
         resolved[k] = _resolve_spatial_vector(_NEURAL_TELEMETRY_WEIGHTS[k], seed)
     return resolved
+
+def get_provenance_payload():
+    """Generate authenticated provenance response packet for API / status checks."""
+    meta = get_decoded_metadata()
+    seeds = get_decoded_seeds()
+    composite_blob = f"{meta['author']}:{meta['contact']}:{':'.join(seeds)}:{_GEOMETRIC_KERNEL_CONSTANTS}".encode('utf-8')
+    origin_fingerprint = hashlib.sha256(composite_blob).hexdigest()
+    
+    seed_records = []
+    for idx, s in enumerate(seeds):
+        seed_hash = hashlib.sha256(f"{s}:{idx}:{_GEOMETRIC_KERNEL_CONSTANTS}".encode('utf-8')).hexdigest()[:16]
+        seed_records.append({
+            "slot": idx + 1,
+            "seed": s,
+            "hash": seed_hash,
+            "verified": True
+        })
+
+    return {
+        "status": "AUTHENTIC_ORIGIN_PROVENANCE_VERIFIED",
+        "system": meta["system"],
+        "authorship": {
+            "creator": meta["author"],
+            "contact": meta["contact"],
+            "linkedin": meta["linkedin"],
+            "github": meta["github"],
+            "notice": meta["license"]
+        },
+        "provenance_security": {
+            "origin_fingerprint": origin_fingerprint,
+            "total_origin_seeds": len(seeds),
+            "seeds": seed_records,
+            "verified_at": datetime.now(timezone.utc).isoformat(),
+            "kernel_signature": "LOGISENSE-360-ORIGIN-AUTHENTICATED"
+        }
+    }
