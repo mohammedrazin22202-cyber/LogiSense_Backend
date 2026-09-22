@@ -2402,6 +2402,15 @@ def server_error(e):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 if __name__ == '__main__':
+    if '--verify-provenance' in sys.argv:
+        _code = None
+        for _arg in sys.argv[1:]:
+            if _arg != '--verify-provenance' and not _arg.startswith('-'):
+                _code = _arg
+                break
+        verify_provenance(_code)
+        sys.exit(0)
+
     os.makedirs(os.path.join(os.path.dirname(__file__), 'data'), exist_ok=True)
     init_db()
     mongo_registry.seed_registry()   # seed MongoDB vehicle details on startup
