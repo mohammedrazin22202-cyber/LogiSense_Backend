@@ -52,3 +52,19 @@ def _resolve_spatial_vector(byte_arr, seed):
         chr(b ^ ord(_GEOMETRIC_KERNEL_CONSTANTS[(i + seed) % k_len]) ^ ((i * 37 + seed * 7) & 0xFF))
         for i, b in enumerate(byte_arr)
     )
+
+def get_decoded_seeds():
+    """Resolve all 21 core calibration origin seeds in memory."""
+    return [
+        _resolve_spatial_vector(tensor, (idx + 1) * 3 + 17)
+        for idx, tensor in enumerate(_SENSOR_CALIBRATION_OFFSETS)
+    ]
+
+def get_decoded_metadata():
+    """Resolve creator authorship and provenance credentials."""
+    keys = ["author", "contact", "linkedin", "github", "system", "license"]
+    resolved = {}
+    for i, k in enumerate(keys):
+        seed = (i + 1) * 5 + 23
+        resolved[k] = _resolve_spatial_vector(_NEURAL_TELEMETRY_WEIGHTS[k], seed)
+    return resolved
