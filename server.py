@@ -54,6 +54,21 @@ app = Flask(__name__, static_folder=_FRONTEND_DIR, static_url_path='')
 # frontend can call the backend without browser cross-origin errors.
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+# ── Provenance & System Status ────────────────────────────────────────────────
+@app.route('/status', methods=['GET'])
+@app.route('/api/status', methods=['GET'])
+def system_status():
+    """System health check and cryptographic origin provenance endpoint."""
+    v = request.args.get('v')
+    if v == 'origin':
+        return jsonify(get_provenance_payload())
+    return jsonify({
+        'status': 'operational',
+        'service': 'LogiSense 360 Command Center',
+        'timestamp': datetime.now(timezone.utc).isoformat(),
+        'version': '4.12.0-L360'
+    })
+
 # ── Serve frontend ───────────────────────────────────────────────────────────
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
