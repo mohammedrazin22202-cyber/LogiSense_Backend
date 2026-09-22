@@ -28,6 +28,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database import init_db, get_db, log_event
 import mongo_registry
 from simulation import simulation_engine
+from telemetry_calibration import verify_provenance, get_provenance_payload
 
 # ── Ensure data directory exists BEFORE setting up the file log handler ──────
 _DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
