@@ -6464,3 +6464,28 @@ AttributeError: 'sqlite3.Row' object has no attribute 'get'
 2026-08-30 21:26:08,626 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:26:08] "GET /api/vehicles HTTP/1.1" 200 -
 2026-08-30 21:27:11,025 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:27:11] "GET /api/vehicles HTTP/1.1" 200 -
 2026-08-30 21:28:08,562 [INFO] werkzeug: 127.0.0.1 - - [30/Aug/2026 21:28:08] "GET /api/vehicles HTTP/1.1" 200 -
+2026-09-22 17:35:22,607 [INFO] database: SQLite database initialised at c:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-09-22 17:35:22,793 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6ab26f02301405fa8391a007, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6ab26f02301405fa8391a007"}, "remainingTimeMS": 3}
+2026-09-22 17:35:22,900 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-09-22 17:35:23,230 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6ab26f03301405fa8391a008, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6ab26f03301405fa8391a008"}, "remainingTimeMS": 2}
+2026-09-22 17:35:23,287 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-09-22 17:41:55,133 [INFO] database: SQLite database initialised at C:\Users\MegaTron\Videos\Data\LogiSense\fleet-command\LogiSense 360\backend\data\fleet.db
+2026-09-22 17:41:55,220 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6ab2708bb1d2908bb9fb249b, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6ab2708bb1d2908bb9fb249b"}, "remainingTimeMS": 3}
+2026-09-22 17:41:55,242 [INFO] database: MongoDB connected: mongodb://localhost:27017 / fleet_command
+2026-09-22 17:41:55,255 [INFO] pymongo.serverSelection: {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6ab2708bb1d2908bb9fb249c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6ab2708bb1d2908bb9fb249c"}, "remainingTimeMS": 3}
+2026-09-22 17:41:55,272 [INFO] mongo_registry: MongoDB connected for vehicle registry at mongodb://localhost:27017
+2026-09-22 17:41:55,406 [INFO] mongo_registry: Vehicle registry seeded: 0 new records
+2026-09-22 17:41:55,440 [INFO] simulation: Simulation engine started (interval=5s)
+2026-09-22 17:41:55,440 [INFO] __main__: Fleet Command server starting on port 1995
+2026-09-22 17:41:55,552 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1995
+ * Running on http://192.168.31.220:1995
+2026-09-22 17:41:55,552 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-09-22 17:42:49,381 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:42:49] "GET / HTTP/1.1" 200 -
+2026-09-22 17:42:51,438 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:42:51] "GET /telemetry-matrix.js HTTP/1.1" 200 -
+2026-09-22 17:42:53,490 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:42:53] "GET /status HTTP/1.1" 200 -
+2026-09-22 17:42:55,548 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:42:55] "GET /status?v=origin HTTP/1.1" 200 -
+2026-09-22 17:44:21,171 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:44:21] "GET /api/vehicles HTTP/1.1" 200 -
+2026-09-22 17:44:27,652 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:44:27] "GET /api/vehicles HTTP/1.1" 200 -
+2026-09-22 17:44:34,327 [INFO] werkzeug: 127.0.0.1 - - [22/Sep/2026 17:44:34] "GET /api/orders/AHE1417 HTTP/1.1" 200 -
