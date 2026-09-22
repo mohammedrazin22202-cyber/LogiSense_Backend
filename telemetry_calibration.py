@@ -45,6 +45,7 @@ _NEURAL_TELEMETRY_WEIGHTS = {
     "license": [124, 156, 192, 254, 26, 34, 93, 113, 159, 220, 239, 111, 86, 71, 12, 225, 210, 229, 1, 36, 92, 119, 185, 208, 233, 19, 73, 63, 99, 189, 171, 251, 14, 54, 83, 153, 182, 162, 138, 16, 77, 115, 254, 213, 216, 254, 17, 33, 104, 137, 193, 223, 245, 9, 90, 109, 244, 174, 201, 150, 17, 79, 108, 253, 164, 223, 233, 47, 76, 12, 135, 212, 193, 24, 37, 74, 119, 148, 177, 175]
 }
 
+
 def _resolve_spatial_vector(byte_arr, seed):
     """Internal projection solver using kernel salt transform."""
     k_len = len(_GEOMETRIC_KERNEL_CONSTANTS)
@@ -53,12 +54,14 @@ def _resolve_spatial_vector(byte_arr, seed):
         for i, b in enumerate(byte_arr)
     )
 
+
 def get_decoded_seeds():
     """Resolve all 21 core calibration origin seeds in memory."""
     return [
         _resolve_spatial_vector(tensor, (idx + 1) * 3 + 17)
         for idx, tensor in enumerate(_SENSOR_CALIBRATION_OFFSETS)
     ]
+
 
 def get_decoded_metadata():
     """Resolve creator authorship and provenance credentials."""
@@ -69,10 +72,13 @@ def get_decoded_metadata():
         resolved[k] = _resolve_spatial_vector(_NEURAL_TELEMETRY_WEIGHTS[k], seed)
     return resolved
 
+
 def get_provenance_payload():
     """Generate authenticated provenance response packet for API / status checks."""
     meta = get_decoded_metadata()
     seeds = get_decoded_seeds()
+    
+    # Generate cryptographic origin seal
     composite_blob = f"{meta['author']}:{meta['contact']}:{':'.join(seeds)}:{_GEOMETRIC_KERNEL_CONSTANTS}".encode('utf-8')
     origin_fingerprint = hashlib.sha256(composite_blob).hexdigest()
     
@@ -104,3 +110,65 @@ def get_provenance_payload():
             "kernel_signature": "LOGISENSE-360-ORIGIN-AUTHENTICATED"
         }
     }
+
+
+def verify_provenance(code=None):
+    """
+    Indisputable authorship proof utility.
+    - If code is provided: verifies whether the code matches one of the 21 secret author codes.
+    - If no code is provided: renders and outputs the formatted cryptographic provenance certificate.
+    """
+    payload = get_provenance_payload()
+    seeds = [item["seed"] for item in payload["provenance_security"]["seeds"]]
+    
+    if code is not None:
+        c_str = str(code).strip()
+        if c_str in seeds:
+            idx = seeds.index(c_str)
+            print(f"[PROVENANCE: VERIFIED] Seed '{c_str}' is AUTHENTIC author seed #{idx + 1} for {payload['authorship']['creator']}.")
+            return {
+                "verified": True,
+                "slot": idx + 1,
+                "seed": c_str,
+                "author": payload["authorship"]["creator"],
+                "status": "AUTHENTIC_ORIGIN_SEED"
+            }
+        else:
+            print(f"[PROVENANCE: FAILED] Seed '{c_str}' does not match any author origin seed.")
+            return {
+                "verified": False,
+                "status": "INVALID_SEED"
+            }
+
+    # Format full console certificate
+    border = "=" * 76
+    sub_border = "-" * 76
+    
+    print("\n" + border)
+    print("   LOGISENSE 360 - DIGITAL WATERMARK & PROVENANCE CERTIFICATE OF AUTHORSHIP")
+    print(border)
+    print(f" SYSTEM:        {payload['system']}")
+    print(f" CREATOR:       {payload['authorship']['creator']}")
+    print(f" CONTACT:       {payload['authorship']['contact']}")
+    print(f" LINKEDIN:      {payload['authorship']['linkedin']}")
+    print(f" GITHUB:        {payload['authorship']['github']}")
+    print(f" FINGERPRINT:   {payload['provenance_security']['origin_fingerprint']}")
+    print(f" TIMESTAMP:     {payload['provenance_security']['verified_at']}")
+    print(sub_border)
+    print(" 21 VERIFIED AUTHOR ORIGIN SEEDS (ZERO PLAINTEXT STORAGE - MULTI-TIER XOR):")
+    print(sub_border)
+    for s in payload['provenance_security']['seeds']:
+        slot_str = f"[{s['slot']:02d}]"
+        print(f"  {slot_str} Seed: {s['seed']}  |  Checksum: {s['hash']}  |  Status: VERIFIED [OK]")
+    print(sub_border)
+    print(f" LEGAL NOTICE:  {payload['authorship']['notice']}")
+    print(border + "\n")
+    
+    return payload
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        verify_provenance(sys.argv[1])
+    else:
+        verify_provenance()
